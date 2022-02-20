@@ -1,0 +1,41 @@
+.suggestion-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.suggestion {
+    margin: 5px;
+    width: 360px;
+}
+
+.suggestion-text{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.suggestion-img {
+    padding: 5px;
+}
+
+.tag {
+    color: grey;
+    font-size: 12px;
+}
+
+.title {
+    font-size: 16px;
+}
+
+.detail {
+    font-size: 10px;
+    font-weight: 600;
+    color: black;
+}
+
+.location {
+    color: grey;
+    font-size: 10px;
+    font-weight: 400;
+}
