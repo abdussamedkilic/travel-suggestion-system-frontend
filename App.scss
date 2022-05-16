@@ -1,0 +1,42 @@
+.App {
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
+.Toastify__toast-body {
+    font-family: 'Gilroy-Medium';
+}
+
+h1 {
+    font-size: 1.5rem !important;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 1.5rem !important;
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2rem !important;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+        font-weight: 500;
+    }
+}
+
+@media (min-width: 980px) {
+    h1 {
+        font-size: 2.5rem !important;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+        font-weight: 500;
+    }
+}
