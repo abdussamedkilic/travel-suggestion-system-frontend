@@ -70,7 +70,7 @@ export const NavBar = (props) => {
                     </li>
                     <li>
                         <button onClick={() => setOpenDropDown(!openDropDown)}>
-                            Dropdown menu cities
+                            City Places
                         </button>
                         <ul
                             className={`dropdown ${openDropDown ? 'show' : ''}`}

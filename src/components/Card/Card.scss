@@ -5,13 +5,21 @@
 }
 
 .card-container {
+    margin: 2em auto;
+    padding: 3em;
     width: 100%;
     height: 100%;
     display: grid;
-    place-items: center;
-    min-height: 100vh;
     line-height: 1.6;
     background-color: rgba(#f7e2e2, 0.3);
+    justify-content: center;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(360px, max-content));
+
+    @media (min-width: 575px) {
+        grid-template-columns: repeat(auto-fit, minmax(420px, max-content));
+        grid-gap: 3em;
+    }
 
     .card {
         color: #f7e2e2;
@@ -20,8 +28,7 @@
         padding: 5rem 0 0;
         max-width: 60ch;
         max-height: 40ch;
-        min-height: 15ch;
-        height: auto;
+        height: 100%;
         border-radius: 0.5rem;
         overflow: hidden;
         transition: transform 500ms ease-in-out;
@@ -29,9 +36,18 @@
         &:hover,
         &:focus-within {
             transition: max-height 2500ms ease-in-out;
-            position: absolute;
-            max-height: 120ch;
+            z-index: 99;
+            min-height: 60ch;
+            height: auto;
             transform: scale(1.05);
+            overflow-y: scroll;
+
+            .card-title {
+                position: unset !important;
+                top: unset !important;
+                left: unset !important;
+                bottom: unset !important;
+            }
 
             .card-title::after {
                 transform: scaleX(1) !important;
@@ -75,8 +91,11 @@
             transition: transform 500ms ease-in-out;
 
             .card-title {
-                position: relative;
-                width: max-content;
+                position: sticky;
+                top: -5em;
+                left: 0;
+                bottom: 0;
+                width: fit-content;
             }
 
             .card-body {
@@ -112,7 +131,7 @@
                 left: calc(var(--padding) * -1);
                 bottom: -4px;
                 width: calc(100% + var(--padding));
-                background-color: #5B7DB1;
+                background-color: #5b7db1;
                 transform-origin: left;
                 transform: scaleX(0);
                 transition: transform 500ms ease-in-out;
