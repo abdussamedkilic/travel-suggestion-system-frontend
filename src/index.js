@@ -8,7 +8,18 @@ import App from './App';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 // Create a client
-const queryClient = new QueryClient();
+const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+            refetchOnmount: false,
+            refetchOnReconnect: false,
+            retry: false,
+            retryDelay: twentyFourHoursInMs,
+        },
+    },
+});
 
 ReactDOM.render(
     <React.StrictMode>

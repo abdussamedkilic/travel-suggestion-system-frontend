@@ -1,3 +1,9 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: 'SFProText-Regular';
     src: local('SFProText-Regular'),
@@ -31,7 +37,7 @@ body {
     font-family: 'SFProText-Regular';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #1b1834 !important;
+    background-color: rgba(#f7e2e2, 0.3) !important;
 }
 
 h1,

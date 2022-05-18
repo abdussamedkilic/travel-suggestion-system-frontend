@@ -1,12 +1,27 @@
 import './NavBar.scss';
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
+// project imports
 import suitcase from '../../images/svgs/suitcase.svg';
 
-export const NavBar = () => {
+// 3rd party
+import { NavLink } from 'react-router-dom';
+
+export const NavBar = (props) => {
+    const [openDropDown, setOpenDropDown] = useState(false);
+    const citiesName = ['Istanbul', 'Ankara'];
+
     const Logo = () => {
         return (
             <div>
-                <a href="/">
+                <NavLink
+                    to="/"
+                    onClick={() => {
+                        props.setSelectedCity('');
+                        setOpenDropDown(false);
+                    }}
+                >
                     <div className="logo-wrap">
                         <div id="logo" className="logo" alt="Brand logo">
                             <img
@@ -17,8 +32,24 @@ export const NavBar = () => {
                             />
                         </div>
                     </div>
-                </a>
+                </NavLink>
             </div>
+        );
+    };
+
+    const MenuItems = (city, index) => {
+        return (
+            <li className="menu-items" key={`city_${index}`}>
+                <NavLink
+                    to={`/places/${city}`}
+                    onClick={() => {
+                        props.setSelectedCity(city);
+                        setOpenDropDown(false);
+                    }}
+                >
+                    {city}
+                </NavLink>
+            </li>
         );
     };
 
@@ -27,13 +58,28 @@ export const NavBar = () => {
             <nav>
                 <ul className="navbar">
                     <li>
-                        <a href="/suggestion">All services</a>
+                        <NavLink
+                            to="/places"
+                            onClick={() => {
+                                props.setSelectedCity('');
+                                setOpenDropDown(false);
+                            }}
+                        >
+                            All Places
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="#">Dropdown menu cities</a>
-                    </li>
-                    <li>
-                        <a href="#"> something else</a>
+                        <button onClick={() => setOpenDropDown(!openDropDown)}>
+                            Dropdown menu cities
+                        </button>
+                        <ul
+                            className={`dropdown ${openDropDown ? 'show' : ''}`}
+                        >
+                            {openDropDown &&
+                                citiesName.map((city, index) =>
+                                    MenuItems(city, index)
+                                )}
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -56,4 +102,9 @@ export const NavBar = () => {
             <Header />
         </>
     );
+};
+
+NavBar.propTypes = {
+    selectedCity: PropTypes.string,
+    setSelectedCity: PropTypes.func,
 };

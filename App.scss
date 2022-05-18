@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;400&display=swap');
 
+body {
+    background-color: rgba(#f7e2e2, 0.3) !important;
+}
+
 .App {
     text-align: center;
-    background-color: #f8f8f8;
+    background-color: rgba(#f7e2e2, 0.3) !important;
 }
 
 .Toastify__toast-body {
