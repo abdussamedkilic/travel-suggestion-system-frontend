@@ -1,0 +1,50 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'SFProText-Regular';
+    src: local('SFProText-Regular'),
+        url(./fonts/SFProText-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: local('Gilroy-Medium'),
+        url(./fonts/Gilroy-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Gilroy-Light';
+    src: local('Gilroy-Light'), url(./fonts/Gilroy-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Gilroy-Regular';
+    src: local('Gilroy-Regular'),
+        url(./fonts/Gilroy-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Gilroy-Bold';
+    src: local('Gilroy-Bold'), url(./fonts/Gilroy-Bold.ttf) format('truetype');
+}
+
+body {
+    width: 100%;
+    font-family: 'SFProText-Regular';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgba(#f7e2e2, 0.3) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Gilroy-Medium';
+}

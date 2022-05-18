@@ -1,0 +1,25 @@
+.customArrowPrev,
+.customArrowNext {
+    background-color: rgba(#f7e2e2, 0.3);
+    border: none;
+    border-radius: 5px;
+    display: block;
+    height: 27px;
+    width: 27px;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    padding: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    outline: none;
+}
+
+.customArrowNext {
+    right: -40px;
+}
+
+.customArrowPrev {
+    left: -40px;
+}
