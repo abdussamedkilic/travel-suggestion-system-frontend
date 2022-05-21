@@ -44,7 +44,12 @@ function App() {
                     <Route path="/suggestion" element={<Suggestion />} />
                     <Route
                         path={'/places/place'}
-                        element={<Detail place={selectedPlace} />}
+                        element={
+                            <Detail
+                                place={selectedPlace}
+                                setSelectedPlace={setSelectedPlace}
+                            />
+                        }
                     />
                 </Routes>
             </Router>
