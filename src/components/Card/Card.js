@@ -2,23 +2,10 @@ import './Card.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//project imports
-import { NextArrow, PrevArrow } from '../Arrow/Arrow';
-
 // 3rd party
 import { NavLink } from 'react-router-dom';
 
 export const Card = (props) => {
-    const slideSettings = {
-        infinite: false,
-        slidesToScroll: 1,
-        speed: 500,
-        slidesToShow: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-        variableWidth: false,
-    };
-
     return (
         <div className="card-container">
             {props.places &&
