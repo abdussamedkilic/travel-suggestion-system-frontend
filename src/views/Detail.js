@@ -1,10 +1,9 @@
 import './Detail.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 //project imports
 import { NextArrow, PrevArrow } from '../components/Arrow/Arrow';
-import { Card } from '../components/Card/Card';
 import Loader from '../components/Loader/Loader';
 import * as Constansts from '../constants';
 
@@ -48,7 +47,7 @@ export const Detail = ({ place, setSelectedPlace }) => {
         variableWidth: false,
     };
 
-    const { isLoading, isError, data, error } = useQuery(
+    const { isLoading, isError, data, error, refetch } = useQuery(
         'get_place_detail',
         () => {
             return fetch(
@@ -64,6 +63,12 @@ export const Detail = ({ place, setSelectedPlace }) => {
             ).then((res) => res.json());
         }
     );
+
+    useEffect(() => {
+        if (place) {
+            refetch();
+        }
+    }, [place, refetch]);
 
     if (isLoading) {
         return <Loader />;
