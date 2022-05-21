@@ -1,0 +1,115 @@
+import './Detail.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
+
+//project imports
+import { NextArrow, PrevArrow } from '../components/Arrow/Arrow';
+
+// 3rd party
+import Slider from 'react-slick';
+import Rating from '@mui/material/Rating';
+
+export const Detail = ({ place }) => {
+    const slideSettings = {
+        infinite: false,
+        slidesToScroll: 1,
+        speed: 500,
+        slidesToShow: 1,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow />,
+        variableWidth: false,
+    };
+
+    return (
+        <div>
+            <section className="profile_container">
+                <div className="profile_img_section">
+                    <img
+                        className="profile_img-LG"
+                        src={place.image}
+                        alt="place_image"
+                    />
+                    <div className="flag_wrapper">
+                        <img
+                            className="flag"
+                            src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/flag-turkey_1f1f9-1f1f7.png"
+                            alt="turkey_flag"
+                        />
+                    </div>
+                </div>
+
+                <div className="profile_desc_section">
+                    <h3>Description : </h3>
+                    <p className="description">{place.detail}</p>
+
+                    <h3>Details : </h3>
+                    <div className="interests">
+                        <span className="interests_item">
+                            Type : {place.type}
+                        </span>
+                        <span className="interests_item">
+                            Rating :
+                            <Rating
+                                name="customized-10"
+                                defaultValue={place.rating}
+                                max={5}
+                                readOnly
+                            />
+                        </span>
+                    </div>
+
+                    <h3>Comments : </h3>
+                    <div className="commentSection">
+                        <Slider {...slideSettings}>
+                            {place.comments.map((comment, index) => (
+                                <span key={`comment_${index}`}>{comment}</span>
+                            ))}
+                        </Slider>
+                    </div>
+
+                    <h3>Top 10 Similar Place: </h3>
+                    <div className="commentSection">
+                        <Slider {...slideSettings}>
+                            {place.comments.map((comment, index) => (
+                                <span key={`comment_${index}`}>
+                                    show similar places here
+                                </span>
+                            ))}
+                        </Slider>
+                    </div>
+                </div>
+            </section>
+
+            <div className="info">
+                <ul>
+                    <li>
+                        <div className="link_img_wrapper">
+                            <img
+                                className="link_img"
+                                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/271/round-pushpin_1f4cd.png"
+                                alt=""
+                            />
+                        </div>
+                        <p>{place.name}</p>
+                    </li>
+                    <li>
+                        <div class="link_img_wrapper">
+                            <img
+                                class="link_img"
+                                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/samsung/265/globe-with-meridians_1f310.png"
+                                alt=""
+                            />
+                        </div>
+                        <p>{place.location}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    );
+};
+
+Detail.propTypes = {
+    place: PropTypes.object,
+};
+
+export default Detail;

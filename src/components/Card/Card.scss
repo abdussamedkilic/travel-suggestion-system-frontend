@@ -13,7 +13,7 @@
     line-height: 1.6;
     background-color: rgba(#f7e2e2, 0.3);
     justify-content: center;
-    grid-gap: 16px;
+    grid-gap: 1em;
     grid-template-columns: repeat(auto-fit, minmax(360px, max-content));
 
     @media (min-width: 575px) {
@@ -26,60 +26,27 @@
         font-family: 'Gilroy-Bold';
         background-size: cover;
         padding: 5rem 0 0;
-        max-width: 60ch;
-        max-height: 40ch;
-        height: 100%;
+        min-width: 60ch;
+        min-height: 60ch;
         border-radius: 0.5rem;
         overflow: hidden;
         transition: transform 500ms ease-in-out;
+        text-decoration: none !important;
 
         &:hover,
         &:focus-within {
             transition: max-height 2500ms ease-in-out;
-            z-index: 99;
-            min-height: 60ch;
-            height: auto;
-            transform: scale(1.05);
-            overflow-y: scroll;
-
-            .card-title {
-                position: unset !important;
-                top: unset !important;
-                left: unset !important;
-                bottom: unset !important;
-            }
+            transform: scale(1.025);
 
             .card-title::after {
                 transform: scaleX(1) !important;
             }
-
-            .card-content {
-                transform: translateY(0) !important;
-                transition-delay: 500ms;
-            }
-
-            .card-content > *:not(.card-title) {
-                opacity: 1;
-                transition-delay: 750ms;
-            }
-        }
-
-        &:focus-within {
-            .card-content {
-                transition-duration: 0ms;
-            }
-
-            .card-content > *:not(.card-title) {
-                transition-delay: 250ms !important;
-            }
-        }
-
-        .card-content > *:not(.card-title) {
-            opacity: 0;
-            transition: opacity 500ms ease-in-out;
         }
 
         .card-content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
             --padding: 1rem;
             padding: var(--padding);
             background: linear-gradient(
@@ -87,50 +54,23 @@
                 hsl(20 0% 0% / 0.5) 60%,
                 hsl(0 0% 0% / 1)
             );
-            transform: translateY(30%);
             transition: transform 500ms ease-in-out;
 
             .card-title {
-                position: sticky;
-                top: -5em;
-                left: 0;
-                bottom: 0;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
                 width: fit-content;
-            }
-
-            .card-body {
-                color: #f7e2e2;
-                font-size: 1em;
-                font-family: 'Gilroy-Medium';
-                text-align: center;
-            }
-
-            .features {
-                display: grid;
-                grid-gap: 10px;
-                grid-template-columns: 1fr 1fr;
-                min-height: 80px;
-            }
-
-            .comment-body {
-                color: #f7e2e2;
-                margin: 0 auto;
-                width: 85%;
-                font-size: 1em;
-                text-align: center;
-                font-family: 'Gilroy-Medium';
-                .slick-track {
-                    margin-top: 3rem;
-                }
             }
 
             .card-title::after {
                 content: '';
                 position: absolute;
                 height: 5px;
+                bottom: 20px;
                 left: calc(var(--padding) * -1);
-                bottom: -4px;
-                width: calc(100% + var(--padding));
+                width: calc(100% - var(--padding));
                 background-color: #5b7db1;
                 transform-origin: left;
                 transform: scaleX(0);

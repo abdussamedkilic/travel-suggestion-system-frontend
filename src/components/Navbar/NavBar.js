@@ -7,6 +7,8 @@ import suitcase from '../../images/svgs/suitcase.svg';
 
 // 3rd party
 import { NavLink } from 'react-router-dom';
+import { FaAngleDown } from 'react-icons/fa';
+import { FaAngleUp } from 'react-icons/fa';
 
 export const NavBar = (props) => {
     const [openDropDown, setOpenDropDown] = useState(false);
@@ -41,11 +43,12 @@ export const NavBar = (props) => {
         return (
             <li className="menu-items" key={`city_${index}`}>
                 <NavLink
-                    to={`/places/${city}`}
+                    to={`/places/city/${city}`}
                     onClick={() => {
                         props.setSelectedCity(city);
                         setOpenDropDown(false);
                     }}
+                    className="menu-item"
                 >
                     {city}
                 </NavLink>
@@ -59,7 +62,7 @@ export const NavBar = (props) => {
                 <ul className="navbar">
                     <li>
                         <NavLink
-                            to="/places"
+                            to="/places/city/"
                             onClick={() => {
                                 props.setSelectedCity('');
                                 setOpenDropDown(false);
@@ -70,7 +73,8 @@ export const NavBar = (props) => {
                     </li>
                     <li>
                         <button onClick={() => setOpenDropDown(!openDropDown)}>
-                            City Places
+                            Cities
+                            {openDropDown ? <FaAngleUp /> : <FaAngleDown />}
                         </button>
                         <ul
                             className={`dropdown ${openDropDown ? 'show' : ''}`}

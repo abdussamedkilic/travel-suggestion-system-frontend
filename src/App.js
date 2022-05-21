@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Routes
 import { Home } from './views/Home';
 import { AllPlaces } from './views/AllPlaces';
+import { Detail } from './views/Detail';
 import { Suggestion } from './components/Suggestions/Suggestion';
 
 // project imports
@@ -18,6 +19,8 @@ import 'slick-carousel/slick/slick-theme.css';
 
 function App() {
     const [selectedCity, setSelectedCity] = useState('');
+    const [selectedPlace, setSelectedPlace] = useState('');
+
     return (
         <div className="App">
             <ToastContainer />
@@ -29,15 +32,20 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route
-                        path={`/places/${selectedCity}`}
+                        path={`/places/city/${selectedCity}`}
                         element={
                             <AllPlaces
                                 setSelectedCity={setSelectedCity}
                                 selectedCity={selectedCity}
+                                setSelectedPlace={setSelectedPlace}
                             />
                         }
                     />
                     <Route path="/suggestion" element={<Suggestion />} />
+                    <Route
+                        path={'/places/place'}
+                        element={<Detail place={selectedPlace} />}
+                    />
                 </Routes>
             </Router>
         </div>

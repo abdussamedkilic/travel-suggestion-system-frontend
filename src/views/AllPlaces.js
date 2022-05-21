@@ -38,11 +38,15 @@ export const AllPlaces = (props) => {
         if (place.location === props.selectedCity) {
             return place;
         }
+        return null;
     });
 
     return (
         <>
-            <Card places={filteredData.length === 0 ? data : filteredData} />
+            <Card
+                places={filteredData.length === 0 ? data : filteredData}
+                setSelectedPlace={props.setSelectedPlace}
+            />
         </>
     );
 };
@@ -50,4 +54,5 @@ export const AllPlaces = (props) => {
 AllPlaces.propTypes = {
     selectedCity: PropTypes.string,
     setSelectedCity: PropTypes.func,
+    setSelectedPlace: PropTypes.func,
 };

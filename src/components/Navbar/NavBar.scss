@@ -79,6 +79,12 @@ button,
     }
 }
 
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+}
+
 .navbar li a:hover {
     transition: 200ms ease-in;
     color: tomato;
