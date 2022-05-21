@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { NextArrow, PrevArrow } from '../Arrow/Arrow';
 
 // 3rd party
-import Slider from 'react-slick';
 import { NavLink } from 'react-router-dom';
 
 export const Card = (props) => {

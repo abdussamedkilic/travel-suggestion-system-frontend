@@ -34,11 +34,15 @@ p {
 .profile_container,
 .info,
 .back {
-    margin: 60px 100px 0px;
+    margin: 5em 5em;
     display: flex;
     align-items: center;
     overflow-x: hidden;
     height: 100%;
+}
+
+.profile_img_infos {
+    margin-top: -25em;
 }
 
 .back {
@@ -68,8 +72,8 @@ p {
     background-color: #f2f2f2;
     border-radius: 100%;
     position: relative;
-    top: -70px;
-    left: 230px;
+    bottom: -9.5em;
+    left: -4.75em;
 }
 
 .flag {
@@ -89,14 +93,18 @@ p {
 }
 
 .profile_img_section {
-    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5em auto;
 }
 
 .profile_desc_section {
     display: flex;
     flex-direction: column;
-    margin-left: 50px;
-    width: 50%;
+    justify-content: center;
+    margin-left: 3em;
+    width: 55vw;
 }
 .interests {
     display: grid;
@@ -121,8 +129,8 @@ p {
 }
 
 .info {
-    margin-top: -20px;
-    margin-left: 100px;
+    margin-top: -10px;
+    margin-left: 0;
 }
 
 .link_img_wrapper {
@@ -193,5 +201,63 @@ li p {
     .info {
         margin-top: 10px;
         margin-left: 33px;
+    }
+}
+
+.card {
+    color: #f7e2e2;
+    font-family: 'Gilroy-Bold';
+    background-size: cover;
+    padding: 5rem 0 0;
+    min-width: 60ch;
+    min-height: 60ch;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 500ms ease-in-out;
+    text-decoration: none !important;
+
+    &:hover,
+    &:focus-within {
+        transition: max-height 2500ms ease-in-out;
+        transform: scale(1.025);
+
+        .card-title::after {
+            transform: scaleX(1) !important;
+        }
+    }
+
+    .card-content {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        --padding: 1rem;
+        padding: var(--padding);
+        background: linear-gradient(
+            hsl(0 0% 0% / 0),
+            hsl(20 0% 0% / 0.5) 60%,
+            hsl(0 0% 0% / 1)
+        );
+        transition: transform 500ms ease-in-out;
+
+        .card-title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            width: fit-content;
+        }
+
+        .card-title::after {
+            content: '';
+            position: absolute;
+            height: 5px;
+            bottom: 20px;
+            left: calc(var(--padding) * -1);
+            width: calc(100% - var(--padding));
+            background-color: #5b7db1;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 500ms ease-in-out;
+        }
     }
 }
