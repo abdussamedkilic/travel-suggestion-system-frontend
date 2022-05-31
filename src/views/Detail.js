@@ -177,7 +177,6 @@ export const Detail = ({ place, setSelectedPlace }) => {
                         </Slider>
                     </div>
                 </div>
-                <hr />
             </div>
         </div>
     );
