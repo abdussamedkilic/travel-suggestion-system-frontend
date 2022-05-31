@@ -1,0 +1,100 @@
+.personal_card {
+    background: linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.1) 100px,
+            transparent 0
+        ),
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 100px, transparent 0),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 300px, transparent 0),
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 300px, transparent 0),
+        linear-gradient(0deg, #749be1 150px, #9267c7);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 30px 15px 15px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    max-width: 20em;
+    min-width: 20em;
+    width: 20em;
+    max-height: 25em;
+    min-height: 25em;
+    height: 25em;
+    margin: 2em auto;
+    padding: 3em;
+
+    &::after {
+        content: '';
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        height: 500px;
+        margin-left: -250px;
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        width: 500px;
+    }
+}
+.name {
+    font-size: 26px;
+    letter-spacing: 2.5px;
+    margin: 25px 0 15px;
+    position: relative;
+    text-transform: uppercase;
+}
+.what_do {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.personal_detail {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19px;
+    margin: 30px auto 40px;
+    width: 80%;
+}
+
+.PersonImg {
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.grid_team {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(360px, max-content));
+    justify-content: center;
+
+    @media (min-width: 575px) {
+        grid-template-columns: repeat(auto-fit, minmax(420px, max-content));
+        grid-gap: 3em;
+    }
+}
+
+.story-container {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+
+    .story {
+        white-space: pre-wrap;
+        font-size: 1.2rem;
+        font-family: 'Gilroy-Medium';
+        font-weight: 600;
+    }
+}
+
+.sectionTitle {
+    text-align: center;
+    white-space: pre-wrap;
+    font-family: 'Gilroy-Bold';
+    font-weight: 800;
+}
+
+.about-container {
+    background-color: rgba(#f7e2e2, 0.3);
+}
