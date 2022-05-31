@@ -209,7 +209,7 @@ li p {
     font-family: 'Gilroy-Bold';
     background-size: cover;
     padding: 5rem 0 0;
-    min-width: 60ch;
+    width: 80ch;
     min-height: 60ch;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -260,4 +260,11 @@ li p {
             transition: transform 500ms ease-in-out;
         }
     }
+}
+
+.slick-slide > div {
+    display: grid;
+    place-items: center;
+    width: 80%;
+    margin: 0 auto;
 }
